@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
 import EventResult from './EventResult';
+import GroupResult from './GroupResult';
 
-Class App extends React.Component {
+class App extends React.Component {
 
   constructor() {
     super();
@@ -576,11 +577,12 @@ Class App extends React.Component {
   }
 
 
-  function createListOfGroups() {
+  createListOfGroups() {
     
   }
 
-  return (
+  render() {
+   return (
     <div className="wrapper">
       <header>
         <p>Achievers Interview Home Project</p>
@@ -592,11 +594,9 @@ Class App extends React.Component {
           <input type="submit" name="submit" />
         </form>
         <div className="results-container">
-          <p>Just a placeholder</p>
-          {}
-          <EventResult />
-          <EventResult />
-          <EventResult />
+          {this.state.exampleGroupResponse.map((group) => {
+            return <GroupResult thumbnailImage={group.organizer.photo.thumb_link} groupName={group.name} memberCount={group.members} city={group.localized_location} country={group.localized_country_name} />
+          })}
         </div>
       </section>
       <footer>
@@ -604,6 +604,8 @@ Class App extends React.Component {
       </footer>
     </div>
   );
+  }
+  
 }
 
 export default App;

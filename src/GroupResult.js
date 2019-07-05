@@ -13,7 +13,16 @@ class GroupResult extends React.Component {
 
         return (
             <div className="group-container">
-               <p>Results will be displayed here.</p>
+                <div className="group-header">
+                    <div className="group-image-container">
+                        <img className="group-thumbnail-image" src={this.props.thumbnailImage} alt="" />
+                    </div>
+                    <h4>{this.props.groupName}</h4>
+                </div>
+                <div className="group-information">
+                    <p>{this.props.memberCount} Members</p>
+                    <p>{this.props.city}, {this.props.country}</p>
+                </div>
             </div>
         );
     }
