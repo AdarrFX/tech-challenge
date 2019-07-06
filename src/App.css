@@ -50,3 +50,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 .group-container img {
   width: 100%;
 }
+
+.group-information p {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
