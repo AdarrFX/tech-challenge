@@ -12,7 +12,7 @@ class GroupResult extends React.Component {
     render() {
 
         return (
-            <div className="group-container" tabIndex="0">
+            <div className="group-container">
                 <div className="group-header">
                     <div className="group-image-container">
                         <img className="group-thumbnail-image" src={this.props.thumbnailImage} alt="" />
