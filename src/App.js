@@ -3,35 +3,9 @@ import './App.css';
 import EventsPage from './EventsPage';
 import GroupsPage from './GroupsPage';
 import {
-  BrowserRouter as Router,
   Route,
   withRouter
 } from 'react-router-dom'
-
-// import queryString from 'query-string'
-
-// const GroupsPage = (props) => {
-//   const { search } = props.location
-//   const query = queryString.parse(search)
-
-//   return <div>
-//     <p>Groups Page: {query.q}</p>
-//     <div className="group-results-container">
-//               {this.state.exampleGroupResponse.map((group) => {
-//                 return <Link to={`/group/${group.id}`}><GroupResult thumbnailImage={group.organizer.photo.thumb_link} groupName={group.name} memberCount={group.members} city={group.localized_location} country={group.localized_country_name} /></Link>
-//               })}
-//             </div>
-//   </div>
-// }
-
-const GroupDetailsPage = (props) => {
-  const { match } = props
-  const { id } = match.params
-
-  return <div>
-    <p>Group Details: {id}</p>
-  </div>
-}
 
 class App extends React.Component {
 
