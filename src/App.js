@@ -19,12 +19,16 @@ class App extends React.Component {
 
   handleSearch = (e) => {
     e.preventDefault();
-    this.props.history.push(`/groups?search=${this.state.searchText}`);
+
+    if(this.state.searchText !== ""){
+      this.props.history.push(`/groups?search=${this.state.searchText}`);
+    }
+
   }
 
   handleTextChange = (e) => {
     this.setState({
-      searchText: e.target.value,
+      searchText: (e.target.value).trim(),
     })
   }
 
@@ -39,8 +43,9 @@ class App extends React.Component {
         <section>
           <h1>Meetup.com Event Search!</h1>
           <form>
-            <input onChange={this.handleTextChange} type="text" name="search" />
-            <button onClick={this.handleSearch}>Search for Groups</button>
+            <label className="search-input-label" htmlFor="search">Enter Group Search Term:</label>
+            <input className="search-input-box" onChange={this.handleTextChange} type="text" name="search" />
+            <button className="search-button" onClick={this.handleSearch}>Search for Groups</button>
           </form>
         </section>
         

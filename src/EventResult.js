@@ -9,14 +9,15 @@ class EventResult extends React.Component {
         }
     }
 
-    handleClick = () => {
+    handleClick = (e) => {
+        e.preventDefault();
         this.setState(prevState => ({ descVisible: !prevState.descVisible}));
     }
 
     render() {
         return (
-            <div className="event-container">
-                <div className="event-info-toggle" tabIndex="0" onClick={this.handleClick} >Show/Hide Details</div>
+            <div className="event-container" tabIndex="0">
+                <button className="info-toggle event-info-toggle" tabIndex="0" onClick={this.handleClick} >Show/Hide Details</button>
                 <h4>{this.props.eventName}</h4>
                 <p className="event-datetime">Event Date and Time: {this.props.eventDate}  {this.props.eventTime}</p>
                 <div className={`event-information${this.state.descVisible ? "" : " hidden"}`}>

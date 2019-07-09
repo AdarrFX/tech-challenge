@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import { has, get } from "lodash";
 import jsonp from 'jsonp'
 import noPhoto from "../src/nophotoavailable-icon.jpg";
+import Loader from "./Loader";
 
 class EventsPage extends React.Component {
 
@@ -16,15 +17,26 @@ class EventsPage extends React.Component {
             query: queryString.parse(props.location.search),
             currentUrlPath: props.location,
             groupResults: [],
+            isLoading: true,
+            hasError: false,
             }
     }
 
     callGroupAPI = () => {
-        jsonp(`https://api.meetup.com/find/groups?key=5e2a4f7e595a61e6c1b2268171a1018&page=15&text=${this.state.query.search}`, null, (err, data) => {
-                console.log(err, data);
+        jsonp(`https://api.meetup.com/find/groups?key=5e2a4f7e595a61e6c1b2268171a1018&page=25&text=${this.state.query.search}`, null, (err, data) => {
+
+            if(err) {
                 this.setState({
-                    groupResults: data.data
+                    hasError: true,
+                    isLoading: false,
                 })
+            } else {
+                this.setState({
+                    groupResults: data.data,
+                    isLoading: false,
+                    hasError: false,
+                })
+            }
             });
     }
 
@@ -43,8 +55,6 @@ class EventsPage extends React.Component {
 
     componentDidMount() {
 
-        console.log(this.state.query.search);
-
         this.setState({
             currentUrlPath: this.props.location
         })
@@ -59,15 +69,22 @@ class EventsPage extends React.Component {
             this.setState({
                 query: queryString.parse(this.props.location.search),
                 currentUrlPath: this.props.location,
+                isLoading: true,
             }, () => {
                 this.callGroupAPI();
-                console.log(this.state.query);
-
             })
         }
     }
 
     render() {
+
+        if (this.state.isLoading) {
+            return (<Loader />);
+        }
+
+        if (this.state.hasError) {
+            return (<h2>API Error! Network connection may be interrupted, or the API may be experiencing issues.</h2>);
+        }
 
         return (
             <div className="group-results-container">

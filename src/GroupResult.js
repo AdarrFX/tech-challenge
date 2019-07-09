@@ -15,7 +15,7 @@ class GroupResult extends React.Component {
             <div className="group-container">
                 <div className="group-header">
                     <div className="group-image-container">
-                        <img className="group-thumbnail-image" src={this.props.thumbnailImage} alt="" />
+                        <img className="group-thumbnail-image" src={this.props.thumbnailImage} alt={`${this.props.groupName} group thumbnail image`} />
                     </div>
                     <h4>{this.props.groupName}</h4>
                 </div>

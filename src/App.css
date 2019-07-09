@@ -15,6 +15,33 @@ a {
   margin: 0 auto;
 }
 
+.info-toggle {
+  padding: 0 10px;
+  font-size: 0.9rem;
+  line-height: 35px;
+  text-align: center;
+  border: 2px solid rgba(0,0,0,0.30);
+  border-radius: 15px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* Input Box and Submit button */
+
+.search-input-label {
+  display: block;
+}
+
+.search-input-box {
+  padding: 5px;
+}
+
+.search-button {
+  display: block;
+  margin: 5px auto;
+  padding: 5px;
+}
+
 
 /* GROUPS DISPLAY PAGE */
 
@@ -22,6 +49,8 @@ a {
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 15px;
   display: flex;
+  width: 98%;
+  margin: 0 auto;
 }
 
 /* GROUP RESULT COMPONENT */
@@ -66,7 +95,8 @@ a {
 .group-image-container {
   min-width: 60px;
   max-width: 80px;
-  margin-left: 10px;
+  height: 80px;
+  margin: 10px;
   float: left;
 }
 
@@ -89,18 +119,14 @@ a {
   width: 30%;
 }
 
+.group-event-list-header {
+  text-align: center;
+}
+
 .event-info-toggle {
-  border: 2px solid rgba(0,0,0,0.30);
-  border-radius: 15px;
-  height: 40px;
   left: 15px;
   top: 60px;
-  padding: 0 10px;
-  font-size: 0.9rem;
-  line-height: 40px;
-  text-align: center;
   position: absolute;
-  cursor: pointer;
 }
 
 .group-details-image-container {
@@ -111,6 +137,10 @@ a {
 
 .group-details-image-container img {
   width: 100%;
+}
+
+.group-details-info-desc {
+  overflow-wrap: break-word;
 }
 
 /* Prevents images inserted into group details by API from appearing too large */
@@ -140,16 +170,124 @@ a {
   display: none;
 }
 
+.event-description {
+  text-align: left;
+}
+
 .group-event-container ul {
   list-style-type: none;
   padding: 0;
 }
 
 .group-event-list {
-  text-align: left;
   width: 70%;
 }
 
 .event-address {
   margin: 0;
+}
+
+/* Loading Bar animation */
+
+.loading-container {
+  display: flex;
+  margin: 100px auto;
+  height: 150px;
+  width: 140px;
+  background-color: #C9E6FF;
+  padding: 15px;
+  align-items: center;
+  border-radius: 10%;
+  opacity: 0.8;
+}
+
+.loading-bar {
+  opacity: 0.8;
+  height: 150px;
+  width: 30px;
+  background-color: green;
+  float: left;
+  margin: 8px;
+  
+  animation-name: pulse;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  10% {
+    height: 170px;
+    width: 45px;
+    margin: 2px;
+  }
+  90% {
+    height: 140px;
+    width: 30px;
+    opacity: 0.4;
+  }
+}
+
+.bar1 {
+  background-color: #006DAA;
+  animation-delay: 0s;
+}
+.bar2 {
+  background-color: #02478C;
+  animation-delay: 0.1s;
+}
+.bar3 {
+  background-color: #061A40;
+  animation-delay: 0.22s;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1000px) {
+  .group-event-container {
+    flex-direction: column;
+    align-items: center;;
+  }
+
+  .group-details-container {
+    width: 95%;
+  }
+
+  .group-event-list {
+    width: 95%;
+  }
+
+}
+
+@media (max-width: 700px) {
+  .group-details-container {
+    padding: 5px;
+    margin-top: 5px;
+  }
+
+  .group-results-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .group-results-container a {
+    margin: 0;
+    width: 95%;
+  }
+
+  .group-container {
+    width: auto;
+    margin: 5px 0 0 0;
+    min-height: unset;
+  }
+
+  .group-container h4 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .event-info-toggle {
+    position: static;
+    margin: 0 auto;
+  }
+
 }
