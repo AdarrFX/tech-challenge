@@ -46,7 +46,6 @@ class EventsPage extends React.Component {
     });
     // Do a jsonp call to get the events data for the chosen group
     jsonp(`https://api.meetup.com/${this.state.urlName}/events?key=5e2a4f7e595a61e6c1b2268171a1018&page=10`, null, (err, data) => {
-      console.log('Events Data: ', err, data);
       // If there's an error, set the appropriate error flags in State
       if (err) {
         this.setState({
@@ -66,7 +65,6 @@ class EventsPage extends React.Component {
   // This function uses lodash has and get to ensure that if any properties are missing from the returned API data object that are needed to display, placeholder text is used instead.
   insertObjectData (object, type) {
     if (has(object, type)) {
-      console.log('Returned Obj', object[type]);
       return get(object, type);
     } else {
       switch (type) {
@@ -161,10 +159,8 @@ class EventsPage extends React.Component {
           {eventErrorJSX}
           <ul>
             {this.state.events.map((event, index) => {
-              console.log(index, event);
-
               return (
-                <li className='event-list-item'>
+                <li className='event-list-item' key={event.id}>
                   <EventResult eventName={this.insertObjectData(event, 'name')} eventDate={this.insertObjectData(event, 'local_date')} eventTime={this.insertObjectData(event, 'local_time')} eventLink={event.link} eventDescription={this.insertObjectData(event, 'description')} eventVenue={this.insertObjectData(event, 'venue.name')} city={this.insertObjectData(event, 'venue.city')} eventAddress={this.insertObjectData(event, 'venue.address_1')} />
 
                 </li>
