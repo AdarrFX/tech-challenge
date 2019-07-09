@@ -6,7 +6,6 @@ MVP {
 
 Error Handling:
 - API error handling messages if there is an API error
-- Can use alert boxes (Maybe the sweet alerts library later?)
 }
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
