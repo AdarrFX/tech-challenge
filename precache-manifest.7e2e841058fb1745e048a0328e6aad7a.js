@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1734d6e22676d86b3f9213114d7d60cf",
+    "revision": "9b0e2881565fff7808895cb44915e44e",
     "url": "/tech-challenge/index.html"
   },
   {
-    "revision": "81249a643435d1390094",
+    "revision": "d01d203f7ede04129ec1",
     "url": "/tech-challenge/static/css/main.9816c556.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tech-challenge/static/js/2.0153976c.chunk.js"
   },
   {
-    "revision": "81249a643435d1390094",
-    "url": "/tech-challenge/static/js/main.1316f168.chunk.js"
+    "revision": "d01d203f7ede04129ec1",
+    "url": "/tech-challenge/static/js/main.0cc74fa6.chunk.js"
   },
   {
     "revision": "65f89f93ba52fc3c9e3b",
