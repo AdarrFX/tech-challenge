@@ -27,7 +27,7 @@ class App extends React.Component {
     // ensure that the search field isn't empty
     if (this.state.searchText !== '') {
       // insert the search query into browser back history so that someone can access the search directly later
-      this.props.history.push(`${process.env.PUBLIC_URL}/groups?search=${this.state.searchText}`);
+      this.props.history.push(`/groups?search=${this.state.searchText}`);
     }
   }
 
@@ -54,8 +54,8 @@ class App extends React.Component {
           </form>
         </section>
 
-        <Route path={`${process.env.PUBLIC_URL}/groups`} component={GroupsPage} />
-        <Route path={`${process.env.PUBLIC_URL}/group/:urlname`} component={EventsPage} />
+        <Route path={`/groups`} component={GroupsPage} />
+        <Route path={`/group/:urlname`} component={EventsPage} />
 
         <footer>
           <p>Copyright Adam Pachulski</p>
